@@ -1,13 +1,31 @@
-#summary One-sentence summary of this page.
+#labels Phase-Implementation
 
-= Introduction =
+= Examples of use =
 
-Add your content here.
+* List USB connected devices
+{{{
+  DeviceManager dm = DeviceManager.getInstance();
+  dm.createInstance();
+  dm.scanDevices();
+  dm.dump();
+}}}
 
+----
 
-= Details =
+* Print USB device description
+{{{
+ Iterator it = dm.getDeviceList().keySet().iterator();
+ String devkey = (String)it.next();
+ UsbDevice usbdev = (UsbDevice)dm.getDeviceList().get(devkey);
+ System.out.println(usbdev.dump());
+}}}
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+* Check folder existence
+{{{
+ Iterator it = dm.getDeviceList().keySet().iterator();
+ String devkey = (String)it.next();
+ UsbDevice usbdev = (UsbDevice)dm.getDeviceList().get(devkey);
+ long result = usbdev.existFolder("/Video");
+ System.out.println("existFolder returned " + result);
+}}}
+
