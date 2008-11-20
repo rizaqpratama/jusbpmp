@@ -1,5 +1,4 @@
 #labels Phase-Implementation
-
 = Examples of use =
 
 * List USB connected devices
@@ -20,6 +19,8 @@
  System.out.println(usbdev.dump());
 }}}
 
+----
+
 * Check folder existence
 {{{
  Iterator it = dm.getDeviceList().keySet().iterator();
@@ -28,4 +29,3 @@
  long result = usbdev.existFolder("/Video");
  System.out.println("existFolder returned " + result);
 }}}
-
